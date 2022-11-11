@@ -5,23 +5,23 @@ const UseMemoExample1 = () => {
   const [boxSwitch, setBoxSwitch] = useState(false);
   const [count, setCount] = useState(0);
 
-  // 일반 객체 사용시 state가 하나라도 바뀌면 계속 재로딩된다.
-  /** @type {React.CSSProperties} */
-  const randomBoxStyle = {
-    backgroundColor: "gray",
-    width: `${Math.random() * 500}px`,
-    height: `${Math.random() * 500}px`,
-  };
+  // // 일반 객체 사용시 state가 하나라도 바뀌면 계속 재로딩된다.
+  // /** @type {React.CSSProperties} */
+  // const randomBoxStyle = {
+  //   backgroundColor: "gray",
+  //   width: `${Math.random() * 500}px`,
+  //   height: `${Math.random() * 500}px`,
+  // };
 
-  // // useMemo를 사용하면 원하는 state를 고를 수 있다.
-  // // useMemo를 여러개 생성해서 원하는 state를 고를 수 있다.
-  // const randomBoxStyle = useMemo(() => {
-  //   return {
-  //     backgroundColor: "gray",
-  //     width: `${Math.random() * 500}px`,
-  //     height: `${Math.random() * 500}px`,
-  //   };
-  // }, [boxSwitch]);
+  // useMemo를 사용하면 원하는 state를 고를 수 있다.
+  // useMemo를 여러개 생성해서 원하는 state를 고를 수 있다.
+  const randomBoxStyle = useMemo(() => {
+    return {
+      backgroundColor: "gray",
+      width: `${Math.random() * 500}px`,
+      height: `${Math.random() * 500}px`,
+    };
+  }, [boxSwitch]);
 
   return (
     <HomeLayout>

@@ -6,7 +6,7 @@ const UseStateExample1 = () => {
   const [count, setCount] = useState(0);
 
   // use 시리즈가 아닌 데이터는 렌더링 때 마다 새로 생성된다.
-  const randomNumber = Math.random();
+  const randomNumber = Math.random()*(100-0) + 0;
 
   return (
     <HomeLayout>
@@ -15,7 +15,11 @@ const UseStateExample1 = () => {
         <p>{randomNumber}</p>
         <p>count: {count}</p>
         {/* <button onClick={() => setCount(count + 1)}>증가</button> */}
-        <button onClick={() => setCount((prev) => prev + 1)}>증가</button>
+        <button onClick={() => setCount((prev) => prev +1)}>1더하기</button>
+        <button onClick={() => setCount((prev) => prev -1)}>1빼기</button>
+        <button onClick={() => setCount((prev) => prev *9)}>9곱</button>
+        <button onClick={() => setCount((prev) => prev /9)}>9나누기</button>
+
       </div>
     </HomeLayout>
   );
